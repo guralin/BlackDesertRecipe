@@ -20,6 +20,7 @@ class Item(Base):
         #TODO:f""形式でできるとわかったら必ずリファクタリングする
         return "<Item(p_id='%s', name='%s', detail='%s' NPC_price='%s' exchange_price='%s')>" %(self.p_id, self.name, self.detail, self.NPC_price, self.exchange_price)
 
+
 class Recipe(Base):
     __tablename__ = 'recipe'
 
