@@ -3,8 +3,8 @@
 
 import csv
 
-from setting import session
-from init import Recipe, Item, Category
+from RecipeApp.models.setting import session
+from RecipeApp.models.init import Recipe, Item, Category
 
 def add_item(item_name, detail="", NPC_price=0, exchange_price=0):
     item = Item()
@@ -19,8 +19,13 @@ def add_item(item_name, detail="", NPC_price=0, exchange_price=0):
 
 def show_item():
     items = session.query(Item).all()
-    for item in items:
-        print(item)
+
+    show = []
+    for row in items:
+        show.append(row.name)
+    
+    return show
+
 
 def item_name_to_id(name):
     match_list = session.query(Item).filter(Item.name==name).all()

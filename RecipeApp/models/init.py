@@ -3,8 +3,8 @@ import sys
 from sqlalchemy import Column, Integer, String, Float, DateTime, Sequence
 from sqlalchemy.ext.declarative import declarative_base
 
-from setting import Base
-from setting import ENGINE
+from RecipeApp.models.setting import Base
+from RecipeApp.models.setting import ENGINE
 
 
 class Item(Base):
