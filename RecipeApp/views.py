@@ -8,8 +8,7 @@ from RecipeApp.models import recipe
 
 @app.route('/')
 def index():
-    recipe = "びーるやぞ"
-    return render_template('test.html', recipe=recipe)
+    return render_template('recipe_search.html')
 
 @app.route('/api', methods=['POST'])
 def show_recipe_material():
