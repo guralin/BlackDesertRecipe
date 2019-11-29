@@ -77,6 +77,18 @@ def add_recipe(category, finished_item, material, material_count):
     session.add(recipe)
     session.commit()
 
+def show_matching_recipe(recipe_name):
+    material_list = []
+    finished_item_id = item_name_to_id(recipe_name)
+    match_material = session.query(Recipe).filter(Recipe.finished_item_id==finished_item_id).all() 
+    for row in match_material:
+        name = id_to_item_name(row.material_id)
+        count = row.material_count
+        material_list.append({"name":name, "count":count})
+    return material_list
+        
+        
+    
     
 def import_recipe_for_csv(path):
     with open(path,"r",encoding="shift-jis") as f:
