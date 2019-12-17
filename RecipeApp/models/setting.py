@@ -14,6 +14,7 @@ DATABASE = 'postgresql://{user_name}:{password}@{host_ip}/{db_name}'.format(user
 ENGINE = create_engine(
         DATABASE,
         encoding = "utf-8",
+        client_encoding='utf8',
         echo=False
 )
 

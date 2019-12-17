@@ -47,7 +47,7 @@ def add_item_when_dont_exist(name):
         add_item(name)
 
 def import_item_for_csv(path):
-    with open(path,"r",encoding="shift-jis") as f:
+    with open(path,"r") as f:
         cin = csv.reader(f)
         villains = [row for row in cin]
         for row in villains:
@@ -90,11 +90,16 @@ def show_matching_recipe(recipe_name):
         pass
     return material_list
         
-        
+def set_category(category_name):
+    category = Category()
+    category.category_name = category_name 
+
+    session.add(category)
+    session.commit()
     
     
 def import_recipe_for_csv(path):
-    with open(path,"r",encoding="shift-jis") as f:
+    with open(path,"r") as f:
         cin = csv.reader(f)
         villains = [row for row in cin]
         for row in villains:
